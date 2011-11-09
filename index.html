@@ -11,6 +11,14 @@
 	
 	<script type="text/javascript">
 
+		$(document).ready(function() {
+			$("a.transit").click(function(event) {
+				console.log($(this).data('transit-name'));
+				$.get("/agencies/" + $(this).data('transit-name') + ".html", function(data) {
+				  alert(data);
+				});
+			});
+		});
 		
 
 	</script>
@@ -26,11 +34,11 @@
 
 	<div data-role="content">	
 		
-		<a href="#" data-role="button" data-inline="true" class="transit" id="acrtransit">AC Transit</a>
-		<a href="#" data-role="button" data-inline="true" class="transit" id="caltrain">Caltrain</a>
-		<a href="#" data-role="button" data-inline="true" class="transit" id="muni">MUNI</a>
-		<a href="#" data-role="button" data-inline="true" class="transit" id="samtrans">SamTrans</a>
-		<a href="#" data-role="button" data-inline="true" class="transit" id="vta">VTA</a>
+		<a href="#" data-role="button" data-inline="true" class="transit" data-transit-name="actransit">AC Transit</a>
+		<a href="#" data-role="button" data-inline="true" class="transit" data-transit-name="caltrain">Caltrain</a>
+		<a href="#" data-role="button" data-inline="true" class="transit" data-transit-name="muni">MUNI</a>
+		<a href="#" data-role="button" data-inline="true" class="transit" data-transit-name="samtrans">SamTrans</a>
+		<a href="#" data-role="button" data-inline="true" class="transit" data-transit-name="vta">VTA</a>
 		
 		
 		
