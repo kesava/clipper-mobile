@@ -19,12 +19,25 @@
 	</div><!-- /header -->
 
 	<div data-role="content">	
+	
+		<div data-role="collapsible" data-content-theme="b">
+			
+			<h3>Add Transit Services</h3>
 		
-		<a href="#actransit" data-role="button" data-transition="flip" data-inline="true" data-transit-name="actransit" data-icon="plus">AC Transit</a>
-		<a href="#caltrain" data-role="button" data-transition="flip" data-inline="true" data-transit-name="caltrain" data-icon="plus">Caltrain</a>
-		<a href="#muni" data-role="button" data-transition="flip" data-inline="true" class="transit" data-transit-name="muni" data-icon="plus">MUNI</a>
-		<a href="#samtrans" data-role="button"  data-transition="flip" data-inline="true" class="transit" data-transit-name="samtrans" data-icon="plus">SamTrans</a>
-		<a href="#vta" data-role="button" data-transition="flip" data-inline="true" class="transit" data-transit-name="vta" data-icon="plus">VTA</a>
+			<a href="#actransit" data-role="button" data-transition="flip" data-inline="true" data-transit-name="actransit" data-icon="plus">AC Transit</a>
+			<a href="#caltrain" data-role="button" data-transition="flip" data-inline="true" data-transit-name="caltrain" data-icon="plus">Caltrain</a>
+			<a href="#muni" data-role="button" data-transition="flip" data-inline="true" class="transit" data-transit-name="muni" data-icon="plus">MUNI</a>
+			<a href="#samtrans" data-role="button"  data-transition="flip" data-inline="true" class="transit" data-transit-name="samtrans" data-icon="plus">SamTrans</a>
+			<a href="#vta" data-role="button" data-transition="flip" data-inline="true" class="transit" data-transit-name="vta" data-icon="plus">VTA</a>
+			
+		</div>
+		
+		<div id="myclipper">
+			<h3>My Clipper</h3>
+			The following services have been loaded on your clipper card.
+		
+			
+		</div>
 		
 		
 	</div><!-- /content -->
@@ -47,10 +60,10 @@
 		<fieldset data-role="controlgroup">
 			<legend>Choose a pass to buy:</legend>
 		     	<input type="radio" name="actransit" id="actransit-local" value="actransit-local"/>
-		     	<label for="actransit-local">Local Pass - $80</label>
+		     	<label for="actransit-local">December Local Pass - $80</label>
 
 		     	<input type="radio" name="actransit" id="actransit-transbay" value="actransit-transbay"  />
-		     	<label for="actransit-transbay">Transbay Pass - $151.20</label>
+		     	<label for="actransit-transbay">December Transbay Pass - $151.20</label>
 		</fieldset>
 		
 		<fieldset data-role="controlgroup">
@@ -62,7 +75,7 @@
 		     	<label for="mcard">Mastercard ending in 7564</label>
 		</fieldset>
 		
-			<a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a><a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a>
+		<a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a><a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a>
 		
 
 	</div><!-- /content -->
@@ -83,32 +96,91 @@
 	<div data-role="content">
 		
 		<label for="arrv" class="select">From</label>
-		<select name="arrv" id="arrv">
-		   <option value="z1">Zone 1</option>
-		   <option value="z2">Zone 2</option>
-		   <option value="z3">Zone 3</option>
-		   <option value="z4">Zone 4</option>
-		   <option value="z5">Zone 5</option>
-		   <option value="z6">Zone 6</option>		
+		<select name="origin" id="arrv">
+			><option value="San Francisco 4th and King-1">Zone 1 - San Francisco 4th &amp; King</option>
+			<option value="22nd Street-1">Zone 1 - 22nd Street</option>
+			<option value="Paul Avenue-1">Zone 1 - Paul Avenue</option>
+			<option value="Bayshore-1">Zone 1 - Bayshore</option>
+			<option value="South San Francisco-1">Zone 1 - South San Francisco</option>
+			<option value="San Bruno-1">Zone 1 - San Bruno</option>
+			<option value="Millbrae-2">Zone 2 - Millbrae</option>
+			<option value="Broadway-2">Zone 2 - Broadway</option>
+			<option value="Burlingame-2">Zone 2 - Burlingame</option>
+			<option value="San Mateo-2">Zone 2 - San Mateo</option>
+			<option value="Hayward Park-2">Zone 2 - Hayward Park</option>
+			<option value="Bay meadows-2">Zone 2 - Bay meadows</option>
+			<option value="Hillsdale-2">Zone 2 - Hillsdale</option>
+			<option value="Belmont-2">Zone 2 - Belmont</option>
+			<option value="San Carlos-2">Zone 2 - San Carlos</option>
+			<option value="Redwood City-2">Zone 2 - Redwood City</option>
+			<option value="Atherton-3">Zone 3 - Atherton</option>
+			<option value="Menlo Park-3">Zone 3 - Menlo Park</option>
+			<option value="Palo Alto-3">Zone 3 - Palo Alto</option>
+			<option value="Stanford-3">Zone 3 - Stanford</option>
+			<option value="California Avenue-3">Zone 3 - California Avenue</option>
+			<option value="San Antonio-3">Zone 3 - San Antonio</option>
+			<option value="Mountain View-3">Zone 3 - Mountain View</option>
+			<option value="Sunnyvale-3">Zone 3 - Sunnyvale</option>
+			<option value="Lawrence-4">Zone 4 - Lawrence</option>
+			<option value="Santa Clara-4">Zone 4 - Santa Clara</option>
+			<option value="College Park-4">Zone 4 - College Park</option>
+			<option value="San Jose Diridion-4">Zone 4 - San Jose Diridion</option>
+			<option value="Tamien-4">Zone 4 - Tamien</option>
+			<option value="Capitol-5">Zone 5 - Capitol</option>
+			<option value="Blossom Hill-5">Zone 5 - Blossom Hill</option>
+			<option value="Morgan Hill-6">Zone 6 - Morgan Hill</option>
+			<option value="San Martin-6">Zone 6 - San Martin</option>
+			<option value="Gilroy-6">Zone 6 - Gilroy</option>		
 		</select>
 		
 		<label for="dest" class="select">To</label>
 		<select name="dest" id="dest">
-		   <option value="z1">Zone 1</option>
-		   <option value="z2">Zone 2</option>
-		   <option value="z3">Zone 3</option>
-		   <option value="z4">Zone 4</option>
-		   <option value="z5">Zone 5</option>
-		   <option value="z6">Zone 6</option>		
+			<option value="San Francisco 4th and King-1">Zone 1 - San Francisco 4th &amp; King</option>
+			<option value="22nd Street-1">Zone 1 - 22nd Street</option>
+			<option value="Paul Avenue-1">Zone 1 - Paul Avenue</option>
+			<option value="Bayshore-1">Zone 1 - Bayshore</option>
+			<option value="South San Francisco-1">Zone 1 - South San Francisco</option>
+			<option value="San Bruno-1">Zone 1 - San Bruno</option>
+			<option value="Millbrae-2">Zone 2 - Millbrae</option>
+			<option value="Broadway-2">Zone 2 - Broadway</option>
+			<option value="Burlingame-2">Zone 2 - Burlingame</option>
+			<option value="San Mateo-2">Zone 2 - San Mateo</option>
+			<option value="Hayward Park-2">Zone 2 - Hayward Park</option>
+			<option value="Bay meadows-2">Zone 2 - Bay meadows</option>
+			<option value="Hillsdale-2">Zone 2 - Hillsdale</option>
+			<option value="Belmont-2">Zone 2 - Belmont</option>
+			<option value="San Carlos-2">Zone 2 - San Carlos</option>
+			<option value="Redwood City-2">Zone 2 - Redwood City</option>
+			<option value="Atherton-3">Zone 3 - Atherton</option>
+			<option value="Menlo Park-3">Zone 3 - Menlo Park</option>
+			<option value="Palo Alto-3">Zone 3 - Palo Alto</option>
+			<option value="Stanford-3">Zone 3 - Stanford</option>
+			<option value="California Avenue-3">Zone 3 - California Avenue</option>
+			<option value="San Antonio-3">Zone 3 - San Antonio</option>
+			<option value="Mountain View-3">Zone 3 - Mountain View</option>
+			<option value="Sunnyvale-3">Zone 3 - Sunnyvale</option>
+			<option value="Lawrence-4">Zone 4 - Lawrence</option>
+			<option value="Santa Clara-4">Zone 4 - Santa Clara</option>
+			<option value="College Park-4">Zone 4 - College Park</option>
+			<option value="San Jose Diridion-4">Zone 4 - San Jose Diridion</option>
+			<option value="Tamien-4">Zone 4 - Tamien</option>
+			<option value="Capitol-5">Zone 5 - Capitol</option>
+			<option value="Blossom Hill-5">Zone 5 - Blossom Hill</option>
+			<option value="Morgan Hill-6">Zone 6 - Morgan Hill</option>
+			<option value="San Martin-6">Zone 6 - San Martin</option>
+			<option value="Gilroy-6">Zone 6 - Gilroy</option>		
 		</select>
 		
 		<fieldset data-role="controlgroup">
 			<legend>Choose a pass to buy:</legend>
 		     	<input type="radio" name="caltrain" id="caltrain-local" value="caltrain-local"/>
-		     	<label for="caltrain-local">Local Pass - $80</label>
+		     	<label for="caltrain-local">December Monthly Pass - $80</label>
+		
+		     	<input type="radio" name="caltrain" id="caltrain-muni" value="caltrain-muni"/>
+		     	<label for="caltrain-muni">December Monthly Pass with Muni Pass - $120</label>
 
-		     	<input type="radio" name="caltrain" id="caltrain-transbay" value="caltrain-transbay"  />
-		     	<label for="caltrain-transbay">Transbay Pass - $151.20</label>
+		     	<input type="radio" name="caltrain" id="caltrain-8ride" value="caltrain-8ride"  />
+		     	<label for="caltrain-8ride">8-rides - $48</label>
 		</fieldset>
 		
 		<fieldset data-role="controlgroup">
@@ -120,7 +192,7 @@
 		     	<label for="mcard">Mastercard ending in 7564</label>
 		</fieldset>
 		
-			<a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a><a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a>
+		<a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a><a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a>
 	</div><!-- /content -->
 
 	<div data-role="footer">
@@ -140,10 +212,10 @@
 		<fieldset data-role="controlgroup">
 			<legend>Choose a pass to buy:</legend>
 		     	<input type="radio" name="muni" id="muni-local" value="muni-local"/>
-		     	<label for="muni-local">Standard Pass - $62</label>
+		     	<label for="muni-local">December Pass - $62</label>
 
 		     	<input type="radio" name="muni" id="muni-fastpass" value="muni-fastpass"  />
-		     	<label for="muni-fastpass">Fast Pass includes BART - $72</label>
+		     	<label for="muni-fastpass">December Fast Pass includes BART - $72</label>
 		
 			   <input type="radio" name="muni" id="muni-10ride" value="muni-10ride"  />
 		     	<label for="muni-10ride">10 ridebook - $20</label>
@@ -158,7 +230,7 @@
 		     	<label for="mcard">Mastercard ending in 7564</label>
 		</fieldset>
 		
-			<a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a><a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a>
+		<a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a><a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a>
 	</div><!-- /content -->
 
 	<div data-role="footer">
@@ -196,7 +268,7 @@
 		     	<label for="mcard">Mastercard ending in 7564</label>
 		</fieldset>
 		
-			<a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a><a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a>
+		<a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a><a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a>
 	</div><!-- /content -->
 
 	<div data-role="footer">
@@ -231,7 +303,7 @@
 		     	<label for="mcard">Mastercard ending in 7564</label>
 		</fieldset>
 		
-			<a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a><a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a>
+		<a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a><a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a>
 	</div><!-- /content -->
 
 	<div data-role="footer">
