@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
-	
+
 </head> 
 <body> 
 
@@ -45,10 +45,19 @@
 	</div><!-- /footer -->
 </div><!-- End of mainpage -->
 
+<script type="text/javascript">
+	BuyView = Backbone.View.extend({
+		initialize: function(){
+			alert("Alerts suck.");
+		}
+	});
+	
+	var search_view = new SearchView({ el: $("div.buy_container") });
+</script>
 
 
 <!-- Start of actransit page -->
-<div data-role="page" id="actransit" data-theme="e">
+<div data-role="page" id="actransit" data-theme="e" class="buy_container">
 
 	<div data-role="header">
 		<h1>AC Transit</h1>
