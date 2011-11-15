@@ -8,6 +8,9 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.6/underscore-min.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+	<script src="transit.js"></script>
 
 </head> 
 <body> 
@@ -45,14 +48,68 @@
 	</div><!-- /footer -->
 </div><!-- End of mainpage -->
 
-<script type="text/javascript">
-	BuyView = Backbone.View.extend({
-		initialize: function(){
-			alert("Alerts suck.");
+<script>
+Pass = Backbone.Model.extend({
+	defaults: {
+		title: '',
+		month: '',
+		price: ''
+	},
+	initialize: function(name, price) {
+		this.set({title: name, price: price})
+	},
+	price: function() {
+		this.get("price");
+	}
+});
+
+TransitAgency = Backbone.Model.extend({
+    defaults: {
+        name: '',
+        passes: []
+    },
+    initialize: function(name){
+        this.set({name: name});
+    },
+	addPass: function(pass){
+		var passes_arr = this.get("passes");
+		passes_arr.push(pass);
+		this.set({passes: passes_arr});
+	}
+});
+
+Person = Backbone.Model.extend({
+	defaults: {
+		passes: []
+	},
+	buyPass: function(newpass){
+		var passes_arr = this.get('passes');
+		if (_.find(passes_arr, function(pass) {return ((pass.title == newpass.title) && (pass.month == newpass.month))})) {
+			passes_arr.push(pass);
+			this.set({passes: passes_arr});			
 		}
-	});
-	
-	var search_view = new SearchView({ el: $("div.buy_container") });
+	},
+});
+
+// PassList = Backbone.Collection.extend({
+// 	model: Person,
+// 	localStorage = new Store("person")
+// 	
+// });
+
+BuyView = Backbone.View.extend({
+	initialize: function(){
+		console.log('Hello World');
+		},
+		events: {
+	            "submit .buyform": "buyPass"
+        },
+		buyPass: function(event){	
+			$.mobile.changePage( "#mainpage", { transition: "flip"} );
+		}
+});
+
+var buy_view = new BuyView({el : $('div.buy_container')});
 </script>
 
 
@@ -62,27 +119,31 @@
 	<div data-role="header">
 		<h1>AC Transit</h1>
 	</div><!-- /header -->
+	
+	
+	<form action="#" method="get" accept-charset="utf-8" class="buyform" data-transition="flip">
+		<div data-role="content">
+			<fieldset data-role="controlgroup">
+				<legend>Choose a pass to buy:</legend>
+			     	<input type="radio" name="actransit" id="actransit-local" value="actransit-local"/>
+			     	<label for="actransit-local">December Local Pass - $80</label>
 
-	<div data-role="content">
-		<fieldset data-role="controlgroup">
-			<legend>Choose a pass to buy:</legend>
-		     	<input type="radio" name="actransit" id="actransit-local" value="actransit-local"/>
-		     	<label for="actransit-local">December Local Pass - $80</label>
-
-		     	<input type="radio" name="actransit" id="actransit-transbay" value="actransit-transbay"  />
-		     	<label for="actransit-transbay">December Transbay Pass - $151.20</label>
-		</fieldset>
+			     	<input type="radio" name="actransit" id="actransit-transbay" value="actransit-transbay"  />
+			     	<label for="actransit-transbay">December Transbay Pass - $151.20</label>
+			</fieldset>
 		
-		<fieldset data-role="controlgroup">
-			<legend>Use this card to pay for it:</legend>
-		     	<input type="radio" name="paycard" id="visa" value="visa"/>
-		     	<label for="visa">Visa ending in 9821</label>
+			<fieldset data-role="controlgroup">
+				<legend>Use this card to pay for it:</legend>
+			     	<input type="radio" name="paycard" id="visa" value="visa"/>
+			     	<label for="visa">Visa ending in 9821</label>
 
-		     	<input type="radio" name="paycard" id="mcard" value="mcard"  />
-		     	<label for="mcard">Mastercard ending in 7564</label>
-		</fieldset>
+			     	<input type="radio" name="paycard" id="mcard" value="mcard"  />
+			     	<label for="mcard">Mastercard ending in 7564</label>
+			</fieldset>
 		
-		<a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a><a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a>
+			<input type="submit" name="submit" value="Buy" id="buy" data-theme="b" data-inline="true">
+			<input type="button" name="cancel" value="Cancel" id="cancel" data-inline="true">
+	</form>
 		
 
 	</div><!-- /content -->
