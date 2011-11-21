@@ -5,6 +5,8 @@
 */
 
 transitPass.views.appview = new AppView();	
+transitPass.views.clipperview = new ClipperView();	
+
 // transitPass.routers.workspace = new Workspace();
 // mobileSearch.utils.toggleNavigation(false); 
 // Backbone.history.start();

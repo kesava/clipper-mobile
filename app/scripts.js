@@ -6,6 +6,7 @@ $LAB
 .script("app/libs/backbone-min.js")
 .script("app/models/pass.js")
 .script("app/views/appview.js")
+.script("app/views/clipperview.js")
 .script("app/models/passCollection.js")
 .script("app/app.js");
 
