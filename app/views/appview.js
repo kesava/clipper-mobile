@@ -9,10 +9,8 @@ AppView = Backbone.View.extend({
     
 	buyPass: function(){
 		var pass = {name: $('#buyform input[name=actransit]:checked').data('name'), price: $('#buyform input[name=actransit]:checked').data('price')};
-		console.log(pass);
-		passes.add(pass);
 		$.mobile.changePage( "#mainpage", { transition: "flip"} );
-		$("#transitservices").toggleClass('ui-collapsible-collapsed');
+		passes.add(pass);
 		return false;
 	}
 });

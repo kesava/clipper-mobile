@@ -5,8 +5,11 @@ ClipperView = Backbone.View.extend({
 		
     },
 	render: function() {
-		console.log(passes.toJSON());
-	  $(this.el).html(passes.toJSON());
-	  return this;
+		var transpasses = JSON.stringify(passes);
+		console.log({passes : transpasses});
+		var list = "<% _.each(passes_arr, function(pass) { %> <li><strong><%= pass.name %></strong>: <%= pass.price %> </li> <% }); %>";
+		console.log(list);
+		$(this.el).html(_.template(list, {passes_arr : transpasses}));
+		return this;
 	}
 });

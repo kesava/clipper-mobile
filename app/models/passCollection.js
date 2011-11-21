@@ -6,6 +6,6 @@ PassStore = Backbone.Collection.extend({
 var passes = new PassStore;
 
 passes.bind('add', function() {
-	console.log(passes);
+	console.log(passes.length);
 	transitPass.views.clipperview.render();
 });
