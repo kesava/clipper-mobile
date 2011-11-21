@@ -1,0 +1,3 @@
+Pass = Backbone.Model.extend({
+	
+});

@@ -8,9 +8,11 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
-	<script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.6/underscore-min.js"></script>
-    <script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
-	<script src="transit.js"></script>
+	
+	<script type="text/javascript" src="app/libs/LAB.min.js"></script>
+	<script src="app/scripts.js"></script>
+	
+	
 
 </head> 
 <body> 
@@ -37,7 +39,9 @@
 		
 		<div id="myclipper" data-role="collapsible" data-collapsed="false" data-content-theme="d">
 			<h3>My Clipper</h3>
-			<p>The following services have been loaded on your clipper card.</p>	
+			<p>The following services have been loaded on your clipper card.
+				<span id="mypasses"></span>
+			</p>	
 		</div>
 		
 		
@@ -48,70 +52,6 @@
 	</div><!-- /footer -->
 </div><!-- End of mainpage -->
 
-<script>
-Pass = Backbone.Model.extend({
-	defaults: {
-		title: '',
-		month: '',
-		price: ''
-	},
-	initialize: function(name, price) {
-		this.set({title: name, price: price})
-	},
-	price: function() {
-		this.get("price");
-	}
-});
-
-TransitAgency = Backbone.Model.extend({
-    defaults: {
-        name: '',
-        passes: []
-    },
-    initialize: function(name){
-        this.set({name: name});
-    },
-	addPass: function(pass){
-		var passes_arr = this.get("passes");
-		passes_arr.push(pass);
-		this.set({passes: passes_arr});
-	}
-});
-
-Person = Backbone.Model.extend({
-	defaults: {
-		passes: []
-	},
-	buyPass: function(newpass){
-		var passes_arr = this.get('passes');
-		if (_.find(passes_arr, function(pass) {return ((pass.title == newpass.title) && (pass.month == newpass.month))})) {
-			passes_arr.push(pass);
-			this.set({passes: passes_arr});			
-		}
-	},
-});
-
-// PassList = Backbone.Collection.extend({
-// 	model: Person,
-// 	localStorage = new Store("person")
-// 	
-// });
-
-BuyView = Backbone.View.extend({
-	initialize: function(){
-		console.log('Hello World');
-		},
-		events: {
-	            "submit .buyform": "buyPass"
-        },
-		buyPass: function(event){	
-			$.mobile.changePage( "#mainpage", { transition: "flip"} );
-		}
-});
-
-var buy_view = new BuyView({el : $('div.buy_container')});
-</script>
-
 
 <!-- Start of actransit page -->
 <div data-role="page" id="actransit" data-theme="e" class="buy_container">
@@ -120,15 +60,16 @@ var buy_view = new BuyView({el : $('div.buy_container')});
 		<h1>AC Transit</h1>
 	</div><!-- /header -->
 	
+	<div id="actran">
 	
-	<form action="#" method="get" accept-charset="utf-8" class="buyform" data-transition="flip">
+	<form action="index.html#mainpage" method="post" accept-charset="utf-8" id="buyform" onsubmit="return false;">
 		<div data-role="content">
 			<fieldset data-role="controlgroup">
 				<legend>Choose a pass to buy:</legend>
-			     	<input type="radio" name="actransit" id="actransit-local" value="actransit-local"/>
+			     	<input type="radio" name="actransit" id="actransit-local" value="actransit-local" data-price="80" data-name="December Local Pass"/>
 			     	<label for="actransit-local">December Local Pass - $80</label>
 
-			     	<input type="radio" name="actransit" id="actransit-transbay" value="actransit-transbay"  />
+			     	<input type="radio" name="actransit" id="actransit-transbay" value="actransit-transbay" data-price="151.20" data-name="December Transbay Pass"/>
 			     	<label for="actransit-transbay">December Transbay Pass - $151.20</label>
 			</fieldset>
 		
@@ -144,6 +85,7 @@ var buy_view = new BuyView({el : $('div.buy_container')});
 			<input type="submit" name="submit" value="Buy" id="buy" data-theme="b" data-inline="true">
 			<input type="button" name="cancel" value="Cancel" id="cancel" data-inline="true">
 	</form>
+	</div>
 		
 
 	</div><!-- /content -->
