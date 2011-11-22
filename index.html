@@ -29,11 +29,11 @@
 			
 			<h3>Add Transit Services</h3>
 		
-			<a href="#actransit" data-role="button" data-transition="flip" data-inline="true" data-transit-name="actransit" data-icon="plus">AC Transit</a>
-			<a href="#caltrain" data-role="button" data-transition="flip" data-inline="true" data-transit-name="caltrain" data-icon="plus">Caltrain</a>
-			<a href="#muni" data-role="button" data-transition="flip" data-inline="true" class="transit" data-transit-name="muni" data-icon="plus">MUNI</a>
-			<a href="#samtrans" data-role="button"  data-transition="flip" data-inline="true" class="transit" data-transit-name="samtrans" data-icon="plus">SamTrans</a>
-			<a href="#vta" data-role="button" data-transition="flip" data-inline="true" class="transit" data-transit-name="vta" data-icon="plus">VTA</a>
+			<a href="#actransit_container" data-role="button" data-transition="flip" data-inline="true" data-transit-name="actransit" data-icon="plus">AC Transit</a>
+			<a href="#caltrain_container" data-role="button" data-transition="flip" data-inline="true" data-transit-name="caltrain" data-icon="plus">Caltrain</a>
+			<a href="#muni_container" data-role="button" data-transition="flip" data-inline="true" class="transit" data-transit-name="muni" data-icon="plus">MUNI</a>
+			<a href="#samtrans_container" data-role="button"  data-transition="flip" data-inline="true" class="transit" data-transit-name="samtrans" data-icon="plus">SamTrans</a>
+			<a href="#vta_container" data-role="button" data-transition="flip" data-inline="true" class="transit" data-transit-name="vta" data-icon="plus">VTA</a>
 			
 		</div>
 		
@@ -54,22 +54,21 @@
 
 
 <!-- Start of actransit page -->
-<div data-role="page" id="actransit" data-theme="e" class="buy_container">
+<div data-role="page" id="actransit_container" data-theme="e" class="buy_container">
 
 	<div data-role="header">
 		<h1>AC Transit</h1>
 	</div><!-- /header -->
 	
-	<div id="actran">
 	
-	<form action="#" method="get"  data-ajax="false" accept-charset="utf-8" class="buyform" onsubmit="return false">
+	<form action="#" method="get"  data-ajax="false" accept-charset="utf-8" class="buyform" onsubmit="return false" id="actransit">
 		<div data-role="content">
 			<fieldset data-role="controlgroup">
 				<legend>Choose a pass to buy:</legend>
-			     	<input type="radio" name="actransit" id="actransit-local" value="actransit-local" data-price="80" data-name="December Local Pass"/>
+			     	<input type="radio" name="actransit" id="actransit-local" value="actransit-local" data-price="80" data-name="AC Transit December Local Pass"/>
 			     	<label for="actransit-local">December Local Pass - $80</label>
 
-			     	<input type="radio" name="actransit" id="actransit-transbay" value="actransit-transbay" data-price="151.20" data-name="December Transbay Pass"/>
+			     	<input type="radio" name="actransit" id="actransit-transbay" value="actransit-transbay" data-price="151.20" data-name="AC Transit December Transbay Pass"/>
 			     	<label for="actransit-transbay">December Transbay Pass - $151.20</label>
 			</fieldset>
 		
@@ -82,12 +81,11 @@
 			     	<label for="mcard">Mastercard ending in 7564</label>
 			</fieldset>
 		
-			<input type="submit" name="submit" value="Buy" id="buy" data-theme="b" data-inline="true">
-			<input type="button" name="cancel" value="Cancel" id="cancel" data-inline="true">
+			<input type="submit" name="submit" value="Buy" data-theme="b" data-inline="true">
+			<input type="button" name="cancel" value="Cancel" data-inline="true">
 		</div>
 	</form>
 	
-	</div> <!-- end of actran -->
 
 	</div><!-- /content -->
 
@@ -98,12 +96,15 @@
 
 
 <!-- Start of caltrain page -->
-<div data-role="page" id="caltrain" data-theme="e">
+<div data-role="page" id="caltrain_container" data-theme="e">
 
 	<div data-role="header">
 		<h1>Caltrain</h1>
 	</div><!-- /header -->
 	
+	
+	<form action="#" method="get"  data-ajax="false" accept-charset="utf-8" class="buyform" onsubmit="return false" id="caltrain">
+		
 	<div data-role="content">
 		
 		<label for="arrv" class="select">From</label>
@@ -184,13 +185,13 @@
 		
 		<fieldset data-role="controlgroup">
 			<legend>Choose a pass to buy:</legend>
-		     	<input type="radio" name="caltrain" id="caltrain-local" value="caltrain-local"/>
+		     	<input type="radio" name="caltrain" id="caltrain-local" value="caltrain-local" data-price="80" data-name="Caltrain December Monthly Pass"/>
 		     	<label for="caltrain-local">December Monthly Pass - $80</label>
 		
-		     	<input type="radio" name="caltrain" id="caltrain-muni" value="caltrain-muni"/>
+		     	<input type="radio" name="caltrain" id="caltrain-muni" value="caltrain-muni" data-price="120" data-name="Caltrain December Monthly Pass with Muni"/>
 		     	<label for="caltrain-muni">December Monthly Pass with Muni Pass - $120</label>
 
-		     	<input type="radio" name="caltrain" id="caltrain-8ride" value="caltrain-8ride"  />
+		     	<input type="radio" name="caltrain" id="caltrain-8ride" value="caltrain-8ride" data-price="48" data-name="Caltrain 8-ride ticket"  />
 		     	<label for="caltrain-8ride">8-rides - $48</label>
 		</fieldset>
 		
@@ -203,8 +204,10 @@
 		     	<label for="mcard">Mastercard ending in 7564</label>
 		</fieldset>
 		
-		<a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a><a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a>
+		<input type="submit" name="submit" value="Buy" data-theme="b" data-inline="true">
+		<input type="button" name="cancel" value="Cancel" data-inline="true">
 	</div><!-- /content -->
+	</form>
 
 	<div data-role="footer">
 		<h4>Page Footer</h4>
@@ -213,22 +216,24 @@
 
 
 <!-- Start of Muni page -->
-<div data-role="page" id="muni" data-theme="e">
+<div data-role="page" id="muni_container" data-theme="e">
 
 	<div data-role="header">
 		<h1>MUNI</h1>
 	</div><!-- /header -->
 
+	<form action="#" method="get"  data-ajax="false" accept-charset="utf-8" class="buyform" onsubmit="return false" id="muni">
+
 	<div data-role="content">
 		<fieldset data-role="controlgroup">
 			<legend>Choose a pass to buy:</legend>
-		     	<input type="radio" name="muni" id="muni-local" value="muni-local"/>
+		     	<input type="radio" name="muni" id="muni-local" value="muni-local" data-price="62" data-name="SF MUNI December Pass"/>
 		     	<label for="muni-local">December Pass - $62</label>
 
-		     	<input type="radio" name="muni" id="muni-fastpass" value="muni-fastpass"  />
+		     	<input type="radio" name="muni" id="muni-fastpass" value="muni-fastpass" data-price="72" data-name="SF MUNI Fast Pass"  />
 		     	<label for="muni-fastpass">December Fast Pass includes BART - $72</label>
 		
-			   <input type="radio" name="muni" id="muni-10ride" value="muni-10ride"  />
+			   <input type="radio" name="muni" id="muni-10ride" value="muni-10ride" data-price="20" data-name="SF MUNI 10-ride" />
 		     	<label for="muni-10ride">10 ridebook - $20</label>
 		</fieldset>
 		
@@ -241,9 +246,13 @@
 		     	<label for="mcard">Mastercard ending in 7564</label>
 		</fieldset>
 		
-		<a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a><a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a>
+		<input type="submit" name="submit" value="Buy" data-theme="b" data-inline="true">
+		<input type="button" name="cancel" value="Cancel" data-inline="true">
 	</div><!-- /content -->
 
+	</form>
+	
+	
 	<div data-role="footer">
 		<h4>Page Footer</h4>
 	</div><!-- /footer -->
@@ -251,22 +260,24 @@
 
 
 <!-- Start of samtrans page -->
-<div data-role="page" id="samtrans" data-theme="e">
+<div data-role="page" id="samtrans_container" data-theme="e">
 
 	<div data-role="header">
 		<h1>SamTrans</h1>
 	</div><!-- /header -->
 
+	<form action="#" method="get"  data-ajax="false" accept-charset="utf-8" class="buyform" onsubmit="return false" id="samtrans">
+
 	<div data-role="content">
 		<fieldset data-role="controlgroup">
 			<legend>Choose a pass to buy:</legend>
-		     	<input type="radio" name="samtrans" id="samtrans-local" value="samtrans-local"/>
+		     	<input type="radio" name="samtrans" id="samtrans-local" value="samtrans-local" data-price="64" data-name="SamTrans December Local Pass"/>
 		     	<label for="samtrans-local">Local Pass - $64</label>
 
-		     	<input type="radio" name="samtrans" id="samtrans-transbay" value="samtrans-transbay"  />
+		     	<input type="radio" name="samtrans" id="samtrans-transbay" value="samtrans-transbay" data-price="96" data-name="SamTrans December Transbay Pass"  />
 		     	<label for="samtrans-transbay">Local + San Francisco Pass - $96</label>
 		
-			   	<input type="radio" name="samtrans" id="samtrans-express" value="samtrans-express"  />
+			   	<input type="radio" name="samtrans" id="samtrans-express" value="samtrans-express" data-price="165" data-name="SamTrans December Express Pass" />
 		     	<label for="samtrans-express">Express Pass - $165</label>
 		</fieldset>
 		
@@ -279,8 +290,11 @@
 		     	<label for="mcard">Mastercard ending in 7564</label>
 		</fieldset>
 		
-		<a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a><a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a>
+		<input type="submit" name="submit" value="Buy" data-theme="b" data-inline="true">
+		<input type="button" name="cancel" value="Cancel" data-inline="true">
 	</div><!-- /content -->
+	
+	</form>
 
 	<div data-role="footer">
 		<h4>Page Footer</h4>
@@ -289,19 +303,21 @@
 
 
 <!-- Start of vta page -->
-<div data-role="page" id="vta" data-theme="e">
+<div data-role="page" id="vta_container" data-theme="e">
 
 	<div data-role="header">
 		<h1>VTA</h1>
 	</div><!-- /header -->
 
+	<form action="#" method="get"  data-ajax="false" accept-charset="utf-8" class="buyform" onsubmit="return false" id="vta">
+
 	<div data-role="content">
 		<fieldset data-role="controlgroup">
 			<legend>Choose a pass to buy:</legend>
-		     	<input type="radio" name="vta" id="vta-local" value="vta-local"/>
+		     	<input type="radio" name="vta" id="vta-local" value="vta-local" data-price="70" data-name="VTA December Standard Pass"/>
 		     	<label for="vta-local">Standard - $70</label>
 
-		     	<input type="radio" name="vta" id="vta-transbay" value="vta-transbay"  />
+		     	<input type="radio" name="vta" id="vta-transbay" value="vta-transbay" data-price="140" data-name="VTA December Express Pass" />
 		     	<label for="vta-transbay">Express - $140</label>
 		</fieldset>
 		
@@ -314,8 +330,10 @@
 		     	<label for="mcard">Mastercard ending in 7564</label>
 		</fieldset>
 		
-		<a href="#mainpage" data-transition="flip" data-theme="b" data-inline="true" data-role="button">Buy</a><a href="#mainpage" data-transition="flip" data-inline="true" data-role="button">Cancel</a>
+		<input type="submit" name="submit" value="Buy" data-theme="b" data-inline="true">
+		<input type="button" name="cancel" value="Cancel" data-inline="true">
 	</div><!-- /content -->
+	</form>
 
 	<div data-role="footer">
 		<h4>Page Footer</h4>

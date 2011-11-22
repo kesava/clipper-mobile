@@ -1,13 +1,14 @@
 AppView = Backbone.View.extend({
-	el: $('#actran'),
     initialize: function(){
     },
     events: {
         "submit form.buyform": "buyPass"
     },
     
-	buyPass: function(){
-		var pass = {name: $('.buyform input[name=actransit]:checked').data('name'), price: $('.buyform input[name=actransit]:checked').data('price')};
+	buyPass: function(event){
+		var transitagency = event.target.id;
+		var pass = {name: $('.buyform input[name=' + transitagency + ']:checked').data('name'), price: $('.buyform input[name=' + transitagency + ']:checked').data('price')};
+		$('#transitservices').trigger('collapse');
 		$.mobile.changePage( "#mainpage", { transition: "flip"} );
 		passes.add(pass);
 		return false;
