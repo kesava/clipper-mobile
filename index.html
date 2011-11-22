@@ -17,7 +17,7 @@
 </head> 
 <body> 
 
-<div data-role="page" id="mainpage" data-theme="e">
+<div data-role="page" id="mainpage" data-theme="d">
 
 	<div data-role="header">
 		<h1>Clipper Mobile</h1>
@@ -28,7 +28,9 @@
 		<div data-role="collapsible" data-content-theme="b" id="transitservices">
 			
 			<h3>Add Transit Services</h3>
-		
+			
+			<a href="#cash_container" data-role="button" data-transition="flip" data-inline="true" data-transit-name="cash" data-icon="plus">Cash</a>
+						
 			<a href="#actransit_container" data-role="button" data-transition="flip" data-inline="true" data-transit-name="actransit" data-icon="plus">AC Transit</a>
 			<a href="#caltrain_container" data-role="button" data-transition="flip" data-inline="true" data-transit-name="caltrain" data-icon="plus">Caltrain</a>
 			<a href="#muni_container" data-role="button" data-transition="flip" data-inline="true" class="transit" data-transit-name="muni" data-icon="plus">MUNI</a>
@@ -37,7 +39,7 @@
 			
 		</div>
 		
-		<div id="myclipper" data-role="collapsible" data-collapsed="false" data-content-theme="d">
+		<div id="myclipper" data-role="collapsible" data-collapsed="false" data-content-theme="e">
 			<h3>My Clipper</h3>
 			<p>The following services have been loaded on your clipper card.
 				<div id="mypasses"></div>
@@ -48,13 +50,47 @@
 	</div><!-- /content -->
 
 	<div data-role="footer">
-		<h6>Just a Demo. Not associated with Clipper Card Service</h6>
+		<h6>Just a demo.</h6>
 	</div><!-- /footer -->
 </div><!-- End of mainpage -->
 
+<!-- Start of cash page -->
+<div data-role="page" id="cash_container" data-theme="d" class="buy_container">
+
+	<div data-role="header">
+		<h1>Add Cash</h1>
+	</div><!-- /header -->
+	<form action="#" method="get"  data-ajax="false" accept-charset="utf-8" class="buyform" onsubmit="return false" id="cash">
+		<div data-role="content">
+			<div data-role="fieldcontain">
+			    <label for="name">Enter cash to be added:</label>
+			    <input type="number" name="cash" id="cash-value" value="0.00"  />
+			</div>
+
+			<fieldset data-role="controlgroup">
+				<legend>Use this card to pay for it:</legend>
+			     	<input type="radio" name="paycard" id="visa" value="visa"/>
+			     	<label for="visa">Visa ending in 9821</label>
+
+			     	<input type="radio" name="paycard" id="mcard" value="mcard"  />
+			     	<label for="mcard">Mastercard ending in 7564</label>
+			</fieldset>
+
+			<input type="submit" name="submit" value="Buy" data-theme="b" data-inline="true">
+			<input type="button" name="cancel" value="Cancel" data-inline="true">
+		</div>
+	</form>
+
+
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
 
 <!-- Start of actransit page -->
-<div data-role="page" id="actransit_container" data-theme="e" class="buy_container">
+<div data-role="page" id="actransit_container" data-theme="d" class="buy_container">
 
 	<div data-role="header">
 		<h1>AC Transit</h1>
@@ -96,7 +132,7 @@
 
 
 <!-- Start of caltrain page -->
-<div data-role="page" id="caltrain_container" data-theme="e">
+<div data-role="page" id="caltrain_container" data-theme="d">
 
 	<div data-role="header">
 		<h1>Caltrain</h1>
@@ -216,7 +252,7 @@
 
 
 <!-- Start of Muni page -->
-<div data-role="page" id="muni_container" data-theme="e">
+<div data-role="page" id="muni_container" data-theme="d">
 
 	<div data-role="header">
 		<h1>MUNI</h1>
@@ -260,7 +296,7 @@
 
 
 <!-- Start of samtrans page -->
-<div data-role="page" id="samtrans_container" data-theme="e">
+<div data-role="page" id="samtrans_container" data-theme="d">
 
 	<div data-role="header">
 		<h1>SamTrans</h1>
@@ -303,7 +339,7 @@
 
 
 <!-- Start of vta page -->
-<div data-role="page" id="vta_container" data-theme="e">
+<div data-role="page" id="vta_container" data-theme="d">
 
 	<div data-role="header">
 		<h1>VTA</h1>
