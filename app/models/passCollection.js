@@ -1,6 +1,6 @@
 PassStore = Backbone.Collection.extend({
 	model: Pass,
-	storeName: "passesDB"
+	localStorage: new Store("passesDB")
 });
 
 var passes = new PassStore;

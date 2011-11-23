@@ -4,6 +4,7 @@ $LAB
 
 .script("app/libs/underscore-min.js")
 .script("app/libs/backbone-min.js")
+.script("app/libs/backbone.localstorage.js")
 .script("app/models/pass.js")
 .script("app/views/appview.js")
 .script("app/views/clipperview.js")

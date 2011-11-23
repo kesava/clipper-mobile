@@ -1,6 +1,7 @@
 ClipperView = Backbone.View.extend({
 	el: $('#mypasses'),
-    initialize: function(){		
+    initialize: function(){
+			this.render();
     },
 	render: function() {
 		var htmlstr = '';
