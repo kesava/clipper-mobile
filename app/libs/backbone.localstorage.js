@@ -39,6 +39,7 @@ _.extend(Store.prototype, {
   create: function(model) {
     if (!model.id) model.id = model.attributes.id = guid();
     localStorage.setItem(this.name+"-"+model.id, JSON.stringify(model));
+
     this.records.push(model.id.toString());
     this.save();
     return model;

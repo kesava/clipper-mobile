@@ -8,7 +8,7 @@ AppView = Backbone.View.extend({
 	buyPass: function(event){
 		var transitagency = event.target.id;
 		if (transitagency == 'cash') {
-			var pass = {name: 'Cash Value', price: $('#cash-value').val()};
+			var pass = {name: 'Cash Value', price: parseInt($('#cash-value').val())};
 		}
 		else {			
 			var pass = {name: $('.buyform input[name=' + transitagency + ']:checked').data('name'), price: $('.buyform input[name=' + transitagency + ']:checked').data('price')};
@@ -16,7 +16,7 @@ AppView = Backbone.View.extend({
 		$('#transitservices').trigger('collapse');
 		$.mobile.changePage( "#mainpage", { transition: "flip"} );
 		$('#mypasses').animate({'backgroundColor' : '#ffffff'});
-		passes.add(pass);
+		passes.addPass(pass);
 		return false;
 	}
 });
