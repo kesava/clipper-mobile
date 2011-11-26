@@ -1,0 +1,27 @@
+ul{
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* The wider the #list_wrapper is, the more columns will fit in it */
+div.pass_row{
+    width: 320px;
+	overflow: auto;
+}
+
+/* The wider this li is, the fewer columns there will be */
+ul.multiple_columns li{
+    text-align: left;
+    float: left;
+    list-style: none;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	}
+
+ul.multiple_columns li.pass {
+	width: 265px;
+	font-weight: bold;
+}
+
+ul.multiple_columns li.price {
+}

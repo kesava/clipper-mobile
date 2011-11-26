@@ -6,7 +6,7 @@ ClipperView = Backbone.View.extend({
     },
 	render: function() {
 		var htmlstr = '';
-		_.each(passes.toJSON(), function(pass) { htmlstr += "<li><strong>" + pass.name + "</strong>: $" + pass.price + "</li>";})
+		_.each(passes.toJSON(), function(pass) { htmlstr += "<div class='pass_row'><ul class='multiple_columns'><li class='pass'>" + pass.name + "</li><li class='price'>$" + pass.price + "</li></ul></div>";})
 		$(this.el).html(htmlstr);
 		return this;
 	}
