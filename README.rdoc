@@ -1,0 +1,4 @@
+= Clipper re-design
+Clipper is a San Francisco bay area commuter card that supposed to work seamlessly with a variety local transit agencies including Caltrain, BART, Muni, AC Transit and VTA. The website for clipper is pretty badly designed especially when it comes to to buying yourself a pass/multiple ride ticket on the go from your phone.
+
+This project is a redesign exercise for Clipper Mobile. It uses a card flip metaphor for recharging and loading transit services. It uses HTML5, CSS3, jQuery Mobile and backbone.js for implementation.
