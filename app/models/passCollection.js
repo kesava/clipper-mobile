@@ -9,7 +9,10 @@ PassStore = Backbone.Collection.extend({
 			passes.create(pass);			
 		}
 		
-		flashes.addMsg({msg: pass.name + " has been added.");
+		var msg = {
+			msg: pass.name + " has been added."
+		}
+		flashes.addMsg(msg);
 		transitPass.views.clipperview.render();
 		
 	}
