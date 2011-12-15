@@ -9,6 +9,7 @@ PassStore = Backbone.Collection.extend({
 			passes.create(pass);			
 		}
 		
+		flashes.addMsg({msg: pass.name + " has been added.");
 		transitPass.views.clipperview.render();
 		
 	}
@@ -16,6 +17,5 @@ PassStore = Backbone.Collection.extend({
 
 var passes = new PassStore;
 if (localStorage.getItem("passesDB") == null) {
-	console.log("Hello");
 	passes.create({name: "Cash Value", price: 0}, {silent: true});
 }

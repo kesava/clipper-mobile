@@ -1,0 +1,2 @@
+Flash = Backbone.Model.extend({
+});
