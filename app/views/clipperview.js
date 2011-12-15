@@ -9,7 +9,7 @@ ClipperView = Backbone.View.extend({
 		var flashstr = "<div id='flash'>"
 		
 		_.each(flashes.toJSON(), function(flash) { flashstr += "<div class='flash'>" + flash.msg + "</div>"});
-		_.each(passes.toJSON(), function(pass) { htmlstr += "<li class='ui-li ui-li-static ui-body-d'>" + pass.name + "<span class='ui-li-aside'>$" + pass.price + "</span></li>";})
+		_.each(passes.toJSON(), function(pass) { htmlstr += "<li class='ui-li ui-li-static ui-body-d'>" + "<p class='ui-li-aside ui-li-desc'><strong>$" + pass.price + "</strong></p><p class='ui-li-desc'><strong>" + pass.name + "</strong></p></li>";})
 		
 		htmlstr += '</ul>';
 		flashstr += '</div>';
@@ -18,7 +18,7 @@ ClipperView = Backbone.View.extend({
 		if (flashes.size() > 0) {
 			$('#flash').show();
 		
-			$("#flash").fadeOut(10000, function() {
+			$("#flash").fadeOut(15000, function() {
 				        $(this).remove();
 			});
 		}
@@ -26,7 +26,6 @@ ClipperView = Backbone.View.extend({
 		return this;
 	}
 });
-
 
 
 
