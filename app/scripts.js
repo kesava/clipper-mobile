@@ -7,10 +7,11 @@ $LAB
 .script("app/libs/backbone.localstorage.js")
 .script("app/models/pass.js")
 .script("app/views/appview.js")
-.script("app/views/clipperview.js")
 .script("app/models/passCollection.js")
 .script("app/models/flash.js")
 .script("app/models/flashCollection.js")
+.script("app/views/flashview.js")
+.script("app/views/clipperview.js")
 .script("app/app.js")
 .script("app/libs/pass-month.js");
 

@@ -10,10 +10,12 @@ PassStore = Backbone.Collection.extend({
 		}
 		
 		var msg = {
-			msg: pass.name + " has been added."
+			msg: pass.name + " has been purchased and added to your card."
 		}
 		flashes.addMsg(msg);
 		transitPass.views.clipperview.render();
+		transitPass.views.flashview.render();
+		
 		
 	}
 });
